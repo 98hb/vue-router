@@ -3,8 +3,7 @@
     <div class="footer_wrap">
       <span @click="btn('/find', 'Find')">发现音乐</span>
       <span @click="btn('/my', 'My')">我的音乐</span>
-      <span @click="oneBtn">朋友--小传</span>
-      <span @click="twoBtn">朋友--小智</span>
+      <span @click="btn('/part', 'Part')">朋友</span>
     </div>
     <div class="top">
       <!-- 7. 设置挂载点 - 当url的hash值路径切换,
@@ -16,42 +15,24 @@
 
 <script>
 // 目标:编程式导航 - js方式跳转路由
-//方式1:
-// params => $route.params.参数名
-// 方式2:
-// query =>$route.query.参数名
-// 重要:path会自动忽略params
-// 推荐：name+query方式传参
-// 注意:如果当前url上"hash值和?参数"与你要跳转的"hash值和?参数"一致，
-// 爆出冗余导航的问题，不会跳转路由
+// 语法:
+// this.$router.push({//都去 router/index.js定义 方法1
+// path:"路由路径"
+// })
+// this.$router.push({//都去 router/index.js定义 方法2
+// name:"路由名"
+// })
+//注意:
+// 虽然用name跳转,但是url的hash值还是切换path路径值
+// 场景:
+// 方便修改:name路由名(在页面上看不见随便定义)
+// path可以在url的hash值看到(尽量符合组内规范)
 export default {
   methods: {
     btn(targetPath, targetName) {
       this.$router.push({
         // path: targetPath,// 方式1:path跳转 路由路径跳转
         name: targetName, //方式2:name跳转 路由名跳转
-        /* query: {
-          name: "你懂",
-        },
-        params: {
-          username: "你好",
-        }, */
-      });
-    },
-    oneBtn() {
-      this.$router.push({
-        name: "Part",
-        params: {
-          username: "小传",
-        },
-      });
-    },
-    twoBtn() {
-      this.$router.push({
-        name: "Part",
-        query: {
-          name: "小智",
-        },
       });
     },
   },
