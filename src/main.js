@@ -4,6 +4,9 @@ import Find from '@/views/Find'//@是src的绝对地址
 import My from '@/views/My'//@是src的绝对地址
 import Part from '@/views/Part'//@是src的绝对地址
 import NotFound from '@/views/NotFound'//@是src的绝对地址
+import Recommend from '@/views/Second/Recommend'//@是src的绝对地址
+import Ranking from '@/views/Second/Ranking'//@是src的绝对地址
+import SongList from "@/views/Second/SongList"
 // 目标: vue-router基础使用
 // 1. 下载vue-router (yarn add vue-router)
 // 2. 引入
@@ -20,7 +23,21 @@ const routes = [
   {
     path: "/find",
     name: "Find",
-    component: Find
+    component: Find,
+    children: [
+      {
+        path: "recommend",
+        component: Recommend
+      },
+      {
+        path: "ranking",
+        component: Ranking
+      },
+      {
+        path: "songlist",
+        component: SongList
+      },
+    ]
   },
   {
     path: "/my",
