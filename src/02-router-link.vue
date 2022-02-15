@@ -3,8 +3,7 @@
     <div class="footer_wrap">
       <router-link to="/find">发现音乐</router-link>
       <router-link to="/my">我的音乐</router-link>
-      <router-link to="/part?name=小传">朋友-小传</router-link>
-      <router-link to="/part/小智">朋友-小智</router-link>
+      <router-link to="/part">朋友</router-link>
     </div>
     <div class="top">
       <!-- 7. 设置挂载点 - 当url的hash值路径切换,
@@ -15,14 +14,12 @@
 </template>
 
 <script>
-// 目标:声明式导航 - 传值
-// 方式1:
-// to="/path?参数名=值"
-// 接受:$route.query.参数名
-// 方式2:
-// (1): 路由规则path上 定义 /path/:参数名
-// (2): to="/path/值"
-// 接受: $route.params.参数名
+// 目标: 声明式导航
+// 本质: vue-router提供的全局组件" router-link"代替a标签
+//1.router-link 替代a标签
+//2.to属性 替代href属性
+// 好处: router-link自带高亮的类名(激活时类名)
+// 3. 对激活的类名做出样式的编写
 export default {};
 </script>
 

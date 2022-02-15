@@ -22,14 +22,18 @@ const routes = [
   {
     path: "/part",
     component: Part
+  },
+  {
+    path: "/part/:username",//有 : 的路径  代表要接受具体的值
+    component: Part
   }
 ]
 
 // 5.生成路由对象
 const router = new VueRouter({
-    // routes: routes 
-    routes//routes是固定的key(传入规则数组)
-  })
+  // routes: routes 
+  routes//routes是固定的key(传入规则数组)
+})
 Vue.config.productionTip = false
 //6. 路由对象注入到vue实例中,this可以访问$route和$router
 new Vue({
