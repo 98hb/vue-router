@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="footer_wrap">
-      <router-link to="/find">发现音乐</router-link>
-      <router-link to="/my">我的音乐</router-link>
-      <router-link to="/part">朋友</router-link>
+      <a href="#/find">发现音乐</a>
+      <a href="#/my">我的音乐</a>
+      <a href="#/part">朋友</a>
     </div>
     <div class="top">
       <!-- 7. 设置挂载点 - 当url的hash值路径切换,
@@ -14,12 +14,6 @@
 </template>
 
 <script>
-// 目标: 声明式导航
-// 本质: vue-router提供的全局组件" router-link"代替a标签
-//1.router-link 替代a标签
-//2.to属性 替代href属性
-// 好处: router-link自带高亮的类名(激活时类名)
-// 3. 对激活的类名做出样式的编写
 export default {};
 </script>
 
@@ -48,9 +42,5 @@ export default {};
 }
 .top {
   padding-top: 62px;
-}
-.footer_wrap .router-link-active {
-  color: white;
-  background: black;
 }
 </style>
