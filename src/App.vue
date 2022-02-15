@@ -1,10 +1,9 @@
 <template>
   <div>
     <div class="footer_wrap">
-      <span @click="btn('/find', 'Find')">发现音乐</span>
-      <span @click="btn('/my', 'My')">我的音乐</span>
-      <span @click="oneBtn">朋友--小传</span>
-      <span @click="twoBtn">朋友--小智</span>
+      <router-link to="/find">发现音乐</router-link>
+      <router-link to="/my">我的音乐</router-link>
+      <router-link to="/part">朋友</router-link>
     </div>
     <div class="top">
       <!-- 7. 设置挂载点 - 当url的hash值路径切换,
@@ -15,47 +14,10 @@
 </template>
 
 <script>
-// 目标:编程式导航 - js方式跳转路由
-//方式1:
-// params => $route.params.参数名
-// 方式2:
-// query =>$route.query.参数名
-// 重要:path会自动忽略params
-// 推荐：name+query方式传参
-// 注意:如果当前url上"hash值和?参数"与你要跳转的"hash值和?参数"一致，
-// 爆出冗余导航的问题，不会跳转路由
-export default {
-  methods: {
-    btn(targetPath, targetName) {
-      this.$router.push({
-        // path: targetPath,// 方式1:path跳转 路由路径跳转
-        name: targetName, //方式2:name跳转 路由名跳转
-        /* query: {
-          name: "你懂",
-        },
-        params: {
-          username: "你好",
-        }, */
-      });
-    },
-    oneBtn() {
-      this.$router.push({
-        name: "Part",
-        params: {
-          username: "小传",
-        },
-      });
-    },
-    twoBtn() {
-      this.$router.push({
-        name: "Part",
-        query: {
-          name: "小智",
-        },
-      });
-    },
-  },
-};
+// 目标: 声明式导航 - 激活类名区别
+// 1.模糊匹配 router-link-active  url中的hash值 包含href属性这个路径(我理解的一级嵌套)
+// 2.精确匹配 router-link-exact-active url中的hash值 完全与href属性路径相同(我理解的二级嵌套)
+export default {};
 </script>
 
 <style scoped>
@@ -69,7 +31,7 @@ export default {
   background-color: #333;
   color: #ccc;
 }
-.footer_wrap span {
+.footer_wrap a {
   flex: 1;
   text-decoration: none;
   padding: 20px 0;
@@ -78,7 +40,7 @@ export default {
   color: #ccc;
   border: 1px solid black;
 }
-.footer_wrap span:hover {
+.footer_wrap a:hover {
   background-color: #555;
 }
 .top {
