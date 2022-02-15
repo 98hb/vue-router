@@ -1,10 +1,9 @@
 <template>
   <div>
     <div class="footer_wrap">
-      <router-link to="/find">发现音乐</router-link>
-      <router-link to="/my">我的音乐</router-link>
-      <router-link to="/part?name=小传">朋友-小传</router-link>
-      <router-link to="/part/小智">朋友-小智</router-link>
+      <span @click="btn('/find', 'Find')">发现音乐</span>
+      <span @click="btn('/my', 'My')">我的音乐</span>
+      <span @click="btn('/part', 'Part')">朋友</span>
     </div>
     <div class="top">
       <!-- 7. 设置挂载点 - 当url的hash值路径切换,
@@ -15,15 +14,29 @@
 </template>
 
 <script>
-// 目标:声明式导航 - 传值
-// 方式1:
-// to="/path?参数名=值"
-// 接受:$route.query.参数名
-// 方式2:
-// (1): 路由规则path上 定义 /path/:参数名
-// (2): to="/path/值"
-// 接受: $route.params.参数名
-export default {};
+// 目标:编程式导航 - js方式跳转路由
+// 语法:
+// this.$router.push({//都去 router/index.js定义 方法1
+// path:"路由路径"
+// })
+// this.$router.push({//都去 router/index.js定义 方法2
+// name:"路由名"
+// })
+//注意:
+// 虽然用name跳转,但是url的hash值还是切换path路径值
+// 场景:
+// 方便修改:name路由名(在页面上看不见随便定义)
+// path可以在url的hash值看到(尽量符合组内规范)
+export default {
+  methods: {
+    btn(targetPath, targetName) {
+      this.$router.push({
+        // path: targetPath,// 方式1:path跳转 路由路径跳转
+        name: targetName, //方式2:name跳转 路由名跳转
+      });
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -37,7 +50,7 @@ export default {};
   background-color: #333;
   color: #ccc;
 }
-.footer_wrap a {
+.footer_wrap span {
   flex: 1;
   text-decoration: none;
   padding: 20px 0;
@@ -46,7 +59,7 @@ export default {};
   color: #ccc;
   border: 1px solid black;
 }
-.footer_wrap a:hover {
+.footer_wrap span:hover {
   background-color: #555;
 }
 .top {
