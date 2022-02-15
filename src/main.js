@@ -12,6 +12,10 @@ Vue.use(VueRouter)
 // 4. 规则数组
 const routes = [
   {
+    path: "/",//默认hash值   是 /路径
+    redirect: "/my"//redirect 是设置要重定向到哪个路径
+  },
+  {
     path: "/find",
     component: Find
   },
