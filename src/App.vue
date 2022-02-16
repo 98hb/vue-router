@@ -10,15 +10,15 @@
 
 <script>
 // 方式2:手动 按需引入
-import Button from "vant/lib/button";
-import "vant/lib/button/style";
+// import Button from "vant/lib/button";(方式2)
+// import "vant/lib/button/style";(方式2)
 export default {
-  components: {
+  /*  components: {(方式2)
     //手动注册组件名
-    // VanButton: Button,
+    // VanButton: Button,(方式2)
     // 形同方式
-    [Button.name]: Button,
-  },
+    [Button.name]: Button,(方式2)
+  }, */
 };
 </script>
 
