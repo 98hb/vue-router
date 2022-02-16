@@ -1,5 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
+import { Form, Field } from 'vant';
+
+Vue.use(Form,Field);
+Vue.use(Field);
 /* // 方式3: 引入所有vant组件
 import Vant from "vant"//(方式3)
 import 'vant/lib/index.css'//引入vant所有组件样式//(方式3)
