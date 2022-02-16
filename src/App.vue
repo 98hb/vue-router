@@ -9,7 +9,17 @@
 </template>
 
 <script>
-export default {};
+// 方式2:手动 按需引入
+import Button from "vant/lib/button";
+import "vant/lib/button/style";
+export default {
+  components: {
+    //手动注册组件名
+    // VanButton: Button,
+    // 形同方式
+    [Button.name]: Button,
+  },
+};
 </script>
 
 <style>
